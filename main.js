@@ -16,7 +16,7 @@ function createWindow() {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
-  const mainWindow2 = new BrowserWindow({
+  const loginWindow = new BrowserWindow({
     width: 800,
     height: 600,
     autoHideMenuBar: true,
@@ -24,10 +24,11 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-  mainWindow2.loadURL('https://nuage.apps.education.fr')
-  mainWindow2.webContents.on('dom-ready', function () {
+  loginWindow.loadURL('https://nuage.apps.education.fr')
+  loginWindow.webContents.on('dom-ready', function () {
     const currentURL = new URL(this.getURL())
     if (/^nuage[0-9]+\.apps\.education\.fr$/.test(currentURL.hostname)) {
+      loginWindow.hide();
       mainWindow2.webContents.executeJavaScript(`fetch(new URL(location.href).origin + '/index.php/settings/personal/authtokens', {
         method: 'POST',
         body: '{"name":"EduNuageUSB"}',
@@ -38,44 +39,36 @@ function createWindow() {
       }).then(
         r => r.json()
       )`, true).catch(
-        e=>{
+        e => {
           dialog.showErrorBox("Erreur lors de la création de la clef d'application", e)
           app.quit()
         }
       ).then(
-        r=>{
+        r => {
+          loginWindow.close();
           loginName = r.loginName;
           token = r.token;
           child(".\\rclone\\rclone.exe",
-          [
-            'config',
-            'create',
-            'EduNuageUSB',
-            'webdav',
-            'vendor=nextcloud',
-            'url="https://nuage03.apps.education.fr/remote.php/dav/files/' + loginName + '/"',
-            'user="' + loginName + '"',
-            'pass="' + token + '"',
-            '--obscure',
-            '--config',
-            './.rclone.conf',
-          ], function (err, data) {
-            console.log(err)
-            console.log(data.toString());
-          });
+            [
+              'config',
+              'create',
+              'EduNuageUSB',
+              'webdav',
+              'vendor=nextcloud',
+              'url="https://nuage03.apps.education.fr/remote.php/dav/files/' + loginName + '/"',
+              'user="' + loginName + '"',
+              'pass="' + token + '"',
+              '--obscure',
+              '--config',
+              './.rclone.conf',
+            ], function (err, data) {
+              console.log(err)
+              console.log(data.toString());
+            });
         }
       );
     }
   })
-
-
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
-
-  child(".\\rclone\\rclone.exe", ["version"], function (err, data) {
-    console.log(err)
-    console.log(data.toString());
-  });
 }
 
 // This method will be called when Electron has finished
