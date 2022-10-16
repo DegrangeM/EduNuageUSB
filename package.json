@@ -1,21 +1,16 @@
 {
-  "name": "electron-quick-start",
+  "name": "EduNuageUSB",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Un outil pour sauvegarder facilement sa clef USB sur le cloud officiel de l'éducation nationnale",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Mathieu Degrange",
+  "license": "",
   "devDependencies": {
     "electron": "^21.1.0"
   }
