@@ -3,7 +3,8 @@ const { app, BrowserWindow, dialog } = require('electron')
 const path = require('path')
 const child = require('child_process').execFile;
 const fs = require('fs')
-const ini = require('ini')
+const ini = require('ini');
+const { workerData } = require('worker_threads');
 
 function createWindow() {
   // Create the browser window.
@@ -15,7 +16,7 @@ function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     },
-    icon:  path.join(__dirname, 'logo.png')
+    icon: path.join(__dirname, 'logo.png')
   })
 
   // and load the index.html of the app.
@@ -33,45 +34,52 @@ function createWindow() {
   loginWindow.webContents.on('dom-ready', function () {
     const currentURL = new URL(this.getURL())
     if (/^nuage[0-9]+\.apps\.education\.fr$/.test(currentURL.hostname)) {
-      loginWindow.hide();
-      mainWindow2.webContents.executeJavaScript(`fetch(new URL(location.href).origin + '/index.php/settings/personal/authtokens', {
-        method: 'POST',
-        body: '{"name":"EduNuageUSB"}',
-        headers:{
-          'requesttoken':window.oc_requesttoken,
-          'Content-Type': 'application/json'
-        }
-      }).then(
-        r => r.json()
-      )`, true).catch(
-        e => {
-          dialog.showErrorBox("Erreur lors de la création de la clef d'application", e)
-          app.quit()
-        }
-      ).then(
-        r => {
-          loginWindow.close();
-          loginName = r.loginName;
-          token = r.token;
-          child(".\\rclone\\rclone.exe",
-            [
-              'config',
-              'create',
-              'EduNuageUSB',
-              'webdav',
-              'vendor=nextcloud',
-              'url="https://nuage03.apps.education.fr/remote.php/dav/files/' + loginName + '/"',
-              'user="' + loginName + '"',
-              'pass="' + token + '"',
-              '--obscure',
-              '--config',
-              './.rclone.conf',
-            ], function (err, data) {
-              console.log(err)
-              console.log(data.toString());
-            });
-        }
-      );
+      if (currentURL.pathname === '/index.php/logout') {
+        loginWindow.close();
+      } else {
+        loginWindow.hide();
+        loginWindow.webContents.executeJavaScript(
+          `fetch(new URL(location.href).origin + '/index.php/settings/personal/authtokens', {
+            method: 'POST',
+            body: '{"name":"EduNuageUSB"}',
+            headers:{
+              'requesttoken': window.oc_requesttoken,
+              'Content-Type': 'application/json'
+            }
+          }).then(
+            r => r.json()
+          )`,
+          true
+        ).catch(
+          e => {
+            dialog.showErrorBox("Erreur lors de la création de la clef d'application", e)
+            app.quit()
+          }
+        ).then(
+          r => {
+            loginWindow.webContents.executeJavaScript('location.href = new URL(location.href).origin + "/index.php/logout?requesttoken=" + window.oc_requesttoken;', true);
+            loginName = r.loginName;
+            token = r.token;
+            child(".\\rclone\\rclone.exe",
+              [
+                'config',
+                'create',
+                'EduNuageUSB',
+                'webdav',
+                'vendor=nextcloud',
+                'url="https://nuage03.apps.education.fr/remote.php/dav/files/' + loginName + '/"',
+                'user="' + loginName + '"',
+                'pass="' + token + '"',
+                '--obscure',
+                '--config',
+                './.rclone.conf',
+              ], function (err, data) {
+                console.log(err)
+                console.log(data.toString());
+              });
+          }
+        );
+      }
     }
   })
 }
@@ -82,7 +90,7 @@ function createWindow() {
 app.whenReady().then(() => {
 
   let account;
-  try { 
+  try {
     const rcloneConfig = ini.parse(fs.readFileSync('./rclone/.rclone.conf', 'utf-8'))
     if (rcloneConfig.EduNuageUSB) {
       account.server = new URL(rcloneConfig.EduNuageUSB.hostname)
@@ -90,7 +98,7 @@ app.whenReady().then(() => {
     } else {
       account = false;
     }
-  } catch(e) {
+  } catch (e) {
     // le fichier rclone n'existe pas
     account = false;
   }
