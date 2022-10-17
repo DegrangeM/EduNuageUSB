@@ -2,15 +2,20 @@
 const { app, BrowserWindow, dialog } = require('electron')
 const path = require('path')
 const child = require('child_process').execFile;
+const fs = require('fs')
+const ini = require('ini')
 
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 600,
+    height: 150,
+    useContentSize: true,
+    autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
-    }
+    },
+    icon:  path.join(__dirname, 'logo.png')
   })
 
   // and load the index.html of the app.
@@ -24,7 +29,7 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-  loginWindow.loadURL('https://nuage.apps.education.fr')
+  // loginWindow.loadURL('https://nuage.apps.education.fr')
   loginWindow.webContents.on('dom-ready', function () {
     const currentURL = new URL(this.getURL())
     if (/^nuage[0-9]+\.apps\.education\.fr$/.test(currentURL.hostname)) {
@@ -75,6 +80,21 @@ function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+
+  let account;
+  try { 
+    const rcloneConfig = ini.parse(fs.readFileSync('./rclone/.rclone.conf', 'utf-8'))
+    if (rcloneConfig.EduNuageUSB) {
+      account.server = new URL(rcloneConfig.EduNuageUSB.hostname)
+      account.username = rcloneConfig.EduNuageUSB.user
+    } else {
+      account = false;
+    }
+  } catch(e) {
+    // le fichier rclone n'existe pas
+    account = false;
+  }
+
   createWindow()
 })
 

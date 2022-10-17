@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">-->
-    <link href="./styles.css" rel="stylesheet">
-    <title>Hello World!</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'" />
+    <link href="./styles.css" rel="stylesheet" />
+    <title>EduNuageUSB</title>
   </head>
   <body>
-   <button id="sauvegarder">Sauvegarder</button> <button id="restaurer">Restaurer</button>
+    <div id="login">
+      Connecté au compte <b>Degrange Mathieu</b> - <a href="#">Se déconnecter</a>
+    </div>
+    <div id="main">
+      <div id="logo">
+        <img src="logo.svg" />
+      </div>
+      <div id="menu">
+        <button id="sauvegarder">Sauvegarder</button>
+        <button id="restaurer">Restaurer</button>
+      </div>
+    </div>
     <script src="./renderer.js"></script>
   </body>
 </html>
