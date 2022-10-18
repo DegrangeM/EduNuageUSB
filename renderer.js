@@ -1,10 +1,17 @@
-/**
- * This file is loaded via the <script> tag in the index.html file and will
- * be executed in the renderer process for that window. No Node.js APIs are
- * available in this process because `nodeIntegration` is turned off and
- * `contextIsolation` is turned on. Use the contextBridge API in `preload.js`
- * to expose Node.js functionality from the main process.
- */
+async function render() {    
 
-const saveButton = document.getElementById('sauvegarder')
-const restaureButton = document.getElementById('restaurer')
+    const account = await EduNuageUSB.getAccount()
+
+    if(account) {
+        document.getElementById('account-name').textContent = account.username;
+        document.body.classList.remove('logged-out');
+        document.getElementById('link-logout').addEventListener('click', EduNuageUSB.logout);
+    } else {
+        document.getElementById('link-login').addEventListener('click', EduNuageUSB.login);
+    }
+    
+    const saveButton = document.getElementById('sauvegarder')
+    const restaureButton = document.getElementById('restaurer')
+}
+
+render()

@@ -6,15 +6,16 @@
     <link href="./styles.css" rel="stylesheet" />
     <title>EduNuageUSB</title>
   </head>
-  <body>
+  <body class="logged-out">
     <div id="login">
-      Connecté au compte <b>Degrange Mathieu</b> - <a href="#">Se déconnecter</a>
+      <div class="logged-out">Non connecté - Cliquez <a href="#" id="link-login">ici</a> pour vous connecter</div>
+      <div class="logged-in">Connecté au compte <b id="account-name">Degrange Mathieu</b> - <a href="#" id="link-logout">Se déconnecter</a></div>
     </div>
     <div id="main">
       <div id="logo">
         <img src="logo.svg" />
       </div>
-      <div id="menu">
+      <div id="menu" class="disabled">
         <button id="sauvegarder">Sauvegarder</button>
         <button id="restaurer">Restaurer</button>
       </div>
