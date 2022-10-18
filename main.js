@@ -2,6 +2,7 @@
 const { app, BrowserWindow, dialog, ipcMain } = require('electron')
 const path = require('path')
 const child = require('child_process').execFile;
+const child2 = require('child_process').exec;
 const fs = require('fs')
 const ini = require('ini');
 
@@ -12,12 +13,17 @@ const EduNuageUSB = {
 }
 let account;
 
+function loadMainPage() {
+  EduNuageUSB.mainWindow.loadFile('index.html')
+}
+
 function createWindow() {
 
   ipcMain.handle('getAccount', async () => EduNuageUSB.account);
 
   ipcMain.handle('login', login);
   ipcMain.handle('logout', logout);
+  ipcMain.handle('sauvegarder', sauvegarder);
 
 
   // Create the browser window.
@@ -32,8 +38,7 @@ function createWindow() {
     icon: path.join(__dirname, 'logo.png')
   })
 
-  EduNuageUSB.mainWindow.loadFile('index.html')
-
+  loadMainPage();
 }
 
 // This method will be called when Electron has finished
@@ -106,6 +111,11 @@ function login() {
             EduNuageUSB.loginWindow.webContents.executeJavaScript('location.href = new URL(location.href).origin + "/index.php/logout?requesttoken=" + window.oc_requesttoken;', true);
             loginName = r.loginName;
             token = r.token;
+            console.log(token)
+            EduNuageUSB.account = {
+              username: loginName,
+              server: currentURL.hostname
+            }
             child(".\\rclone\\rclone.exe",
               [
                 'config',
@@ -113,9 +123,6 @@ function login() {
                 'EduNuageUSB',
                 'webdav',
                 'vendor=nextcloud',
-                'url="https://nuage03.apps.education.fr/remote.php/dav/files/' + loginName + '/"',
-                'user="' + loginName + '"',
-                'pass="' + token + '"',
                 'url=https://nuage03.apps.education.fr/remote.php/dav/files/' + loginName + '/',
                 'user=' + loginName,
                 'pass=' + token,
@@ -125,7 +132,9 @@ function login() {
               ], function (err, data) {
                 console.log(err)
                 console.log(data.toString());
-              });
+              }
+            );
+            loadMainPage();
           }
         );
       } // endif not logout
@@ -145,5 +154,26 @@ function logout() {
     ], function (err, data) {
       console.log(err)
       console.log(data.toString());
-    });
+    }
+  );
+  loadMainPage();
+}
+
+function sauvegarder() {
+  child(".\\rclone\\rclone.exe",
+  [
+    'sync',
+    '../.',
+    'EduNuageUSB:EduNuageUSB',
+    '--config',
+    './.rclone.conf',
+  ], function (err, data) {
+    console.log(err)
+    console.log(data.toString());
+  }
+);
+}
+
+function restaurer() {
+
 }
