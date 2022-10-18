@@ -12,6 +12,10 @@ async function render() {
     
     const saveButton = document.getElementById('sauvegarder')
     const restaureButton = document.getElementById('restaurer')
+
+    saveButton.addEventListener('click', EduNuageUSB.sauvegarder);
+
+
 }
 
 render()
