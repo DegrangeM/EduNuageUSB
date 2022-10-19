@@ -1,12 +1,9 @@
-// Modules to control application life and create native browser window
 const { app, BrowserWindow, dialog, ipcMain } = require('electron')
 const path = require('path')
 const execFile = require('child_process').execFile;
 const spawn = require('child_process').spawn;
 const fs = require('fs')
 const ini = require('ini');
-
-// TODO : RELOAD AFTER LOGIN/OUT
 
 const EduNuageUSB = {
   account: false
