@@ -24,6 +24,7 @@ function createWindow() {
   ipcMain.handle('login', login);
   ipcMain.handle('logout', logout);
   ipcMain.handle('sauvegarder', sauvegarder);
+  ipcMain.handle('restaurer', restaurer);
 
 
   // Create the browser window.
@@ -222,7 +223,6 @@ function sauvegarder() {
 }
 
 function restaurer() {
-
   EduNuageUSB.restoreWindow = new BrowserWindow({
     width: 600,
     height: 400,
@@ -246,24 +246,24 @@ function restaurer() {
         './.rclone.conf',
         '--stats',
         '1s',
-        '-v'
+        '-v',
       ]
     );
     rclone.stderr.on('data', function (data) {
       try {
-        EduNuageUSB.saveWindow.webContents.send('log', data.toString());
+        EduNuageUSB.restoreWindow.webContents.send('log', data.toString());
       } catch (e) {
         console.log(e);
       }
     });
     rclone.on('exit', function () {
       try {
-        EduNuageUSB.saveWindow.webContents.send('log', "<b style='color:green;'>Restauration terminée !</b>", true);
+        EduNuageUSB.restoreWindow.webContents.send('log', "<b style='color:green;'>Restauration terminée !</b>", true);
       } catch (e) {
         console.log(e);
       }
     });
-    EduNuageUSB.saveWindow.on('close', function () {
+    EduNuageUSB.restoreWindow.on('close', function () {
       try {
         rclone.kill();
       } catch (e) {
