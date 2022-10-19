@@ -8,7 +8,7 @@ EduNuageUSB est un logiciel permettant aux enseignants de facilement sauvegarder
 
 ### Téléchargement
 
-Cliquez ICI pour télécharger le logiciel. Décompressez le à la racine de votre clef USB.
+Cliquez <a href="https://github.com/DegrangeM/EduNuageUSB/releases/latest">ici</a> pour télécharger le logiciel. Décompressez le à la racine de votre clef USB.
 
 Vous devriez alors avoir quelque chose de ce genre :
 
