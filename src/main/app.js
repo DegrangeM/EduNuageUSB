@@ -10,7 +10,7 @@ const EduNuageUSB = {
 }
 
 function loadMainPage() {
-  EduNuageUSB.mainWindow.loadFile('index.html')
+  EduNuageUSB.mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'))
 }
 
 function createWindow() {
@@ -30,9 +30,9 @@ function createWindow() {
     useContentSize: true,
     autoHideMenuBar: true,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, '../preload/app.js')
     },
-    icon: path.join(__dirname, './ressources/images/logo.png')
+    icon: path.join(__dirname, '../../resources/logo.png')
   })
 
   loadMainPage();
@@ -74,9 +74,6 @@ function login() {
     parent: EduNuageUSB.mainWindow,
     modal: true,
     autoHideMenuBar: true,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
   });
 
   EduNuageUSB.loginWindow.loadURL('https://nuage.apps.education.fr')
@@ -168,11 +165,11 @@ function sauvegarder() {
     parent: EduNuageUSB.mainWindow,
     modal: true,
     webPreferences: {
-      preload: path.join(__dirname, 'preload-log.js')
+      preload: path.join(__dirname, '../preload/log.js')
     },
-    icon: path.join(__dirname, 'logo.png')
+    icon: path.join(__dirname, '../../resources/logo.png')
   });
-  EduNuageUSB.saveWindow.loadFile('log.html')
+  EduNuageUSB.saveWindow.loadFile(path.join(__dirname, '../renderer/log.html'))
   EduNuageUSB.saveWindow.webContents.on('dom-ready', function () {
     EduNuageUSB.saveWindow.webContents.send('title', 'Sauvegarde');
     EduNuageUSB.saveWindow.webContents.send('class', 'sauvegarder');
@@ -230,11 +227,11 @@ function restaurer() {
     parent: EduNuageUSB.mainWindow,
     modal: true,
     webPreferences: {
-      preload: path.join(__dirname, 'preload-log.js')
+      preload: path.join(__dirname, '../preload/log.js')
     },
-    icon: path.join(__dirname, 'logo.png')
+    icon: path.join(__dirname, '../../resources/logo.png')
   });
-  EduNuageUSB.restoreWindow.loadFile('log.html')
+  EduNuageUSB.restoreWindow.loadFile(path.join(__dirname, '../renderer/log.html'))
   EduNuageUSB.restoreWindow.webContents.on('dom-ready', function () {
     EduNuageUSB.restoreWindow.webContents.send('title', 'Restauration');
     EduNuageUSB.restoreWindow.webContents.send('class', 'restaurer');
