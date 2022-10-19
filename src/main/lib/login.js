@@ -48,7 +48,7 @@ function login(EduNuageUSB) {
                                 username: loginName,
                                 server: currentURL.hostname
                             }
-                            execFile(".\\rclone\\rclone.exe",
+                            execFile(path.join(__dirname, "../../../rclone/rclone.exe"),
                                 [
                                     'config',
                                     'create',

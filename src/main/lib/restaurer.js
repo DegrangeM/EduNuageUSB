@@ -21,7 +21,7 @@ function restaurer(EduNuageUSB) {
             EduNuageUSB.restoreWindow.webContents.send('title', 'Restauration');
             EduNuageUSB.restoreWindow.webContents.send('class', 'restaurer');
             EduNuageUSB.restoreWindow.webContents.send('log', "<b style='color:white;'>Début de la restauration ...</b><br />", true);
-            const rclone = spawn(".\\rclone\\rclone.exe",
+            const rclone = spawn(path.join(__dirname, "../../../rclone/rclone.exe"),
                 [
                     'copy',
                     'EduNuageUSB:EduNuageUSB',

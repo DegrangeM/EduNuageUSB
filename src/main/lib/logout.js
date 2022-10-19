@@ -4,7 +4,7 @@ const execFile = require('child_process').execFile;
 function logout(EduNuageUSB) {
     return () => {
         EduNuageUSB.account = false;
-        execFile(".\\rclone\\rclone.exe",
+        execFile(path.join(__dirname, "../../../rclone/rclone.exe"),
             [
                 'config',
                 'delete',
