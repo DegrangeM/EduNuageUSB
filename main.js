@@ -2,7 +2,6 @@
 const { app, BrowserWindow, dialog, ipcMain } = require('electron')
 const path = require('path')
 const execFile = require('child_process').execFile;
-const spawn = require('child_process').spawn;
 const fs = require('fs')
 const ini = require('ini');
 
@@ -173,16 +172,13 @@ function sauvegarder() {
     '-v',
     '--config',
     './.rclone.conf',
-  ], function (error, stdout, stderr) {
+  ], function (error, stdout, stderr) { // rclone utilise stderr
     console.log(error);
     console.log(stdout)
     console.log(stderr);
   }
 );
-/*toto.stderr.setEncoding('utf8');
-toto.stderr.on('data', function(data) {
-    console.log('stdout: ' + data);
-});*/
+
 }
 
 function restaurer() {
