@@ -21,7 +21,8 @@
     "electron": "^21.1.0"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "ini": "^3.0.1"
   },
   "config": {
     "forge": {
