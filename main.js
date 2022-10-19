@@ -8,7 +8,6 @@ const ini = require('ini');
 const EduNuageUSB = {
   account: false
 }
-let account;
 
 function loadMainPage() {
   EduNuageUSB.mainWindow.loadFile('index.html')
