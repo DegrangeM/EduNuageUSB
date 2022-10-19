@@ -217,9 +217,6 @@ function sauvegarder() {
     })
   });
 
-
-
-
 }
 
 function restaurer() {
