@@ -1,8 +1,8 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, dialog, ipcMain } = require('electron')
 const path = require('path')
-const child = require('child_process').execFile;
-const child2 = require('child_process').exec;
+const execFile = require('child_process').execFile;
+const spawn = require('child_process').spawn;
 const fs = require('fs')
 const ini = require('ini');
 
@@ -116,7 +116,7 @@ function login() {
               username: loginName,
               server: currentURL.hostname
             }
-            child(".\\rclone\\rclone.exe",
+            execFile(".\\rclone\\rclone.exe",
               [
                 'config',
                 'create',
@@ -144,7 +144,7 @@ function login() {
 
 function logout() {
   EduNuageUSB.account = false;
-  child(".\\rclone\\rclone.exe",
+  execFile(".\\rclone\\rclone.exe",
     [
       'config',
       'delete',
@@ -160,18 +160,29 @@ function logout() {
 }
 
 function sauvegarder() {
-  child(".\\rclone\\rclone.exe",
+  // Je n'ai pas trouvé comment afficher la console rclone, il va donc falloir afficher soit-même les messages.
+  execFile(".\\rclone\\rclone.exe",
   [
+   // 'rcd',
+    //'--rc-web-gui',
     'sync',
-    '../.',
+    '.',
     'EduNuageUSB:EduNuageUSB',
+    '--stats',
+    '5s',
+    '-v',
     '--config',
     './.rclone.conf',
-  ], function (err, data) {
-    console.log(err)
-    console.log(data.toString());
+  ], function (error, stdout, stderr) {
+    console.log(error);
+    console.log(stdout)
+    console.log(stderr);
   }
 );
+/*toto.stderr.setEncoding('utf8');
+toto.stderr.on('data', function(data) {
+    console.log('stdout: ' + data);
+});*/
 }
 
 function restaurer() {
