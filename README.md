@@ -54,7 +54,7 @@ Pratique si vous avez oublié votre clef usb !
 
 ### Se déconnecter
 
-Vous pouvez cliquer sur le lien pour se déconnecter si vous le souhaitez. A noter que cela n'effacera pas les fichiers déjà sauvegardé. Il n'est pas utile (c'est même déconseillé) de se déconnecter après chaque utilisation du logiciel.
+Vous pouvez cliquer sur le lien pour se déconnecter si vous le souhaitez. A noter que cela n'effacera pas les fichiers déjà sauvegardé. Il n'est pas utile (c'est même déconseillé) de se déconnecter après chaque utilisation du logiciel. Si vous souhaitez en savoir plus sur la sécurité, vous pouvez cliquer <a href="https://github.com/DegrangeM/EduNuageUSB/wiki/S%C3%A9curit%C3%A9">ici</a>.
 
 ### Remarques
 
