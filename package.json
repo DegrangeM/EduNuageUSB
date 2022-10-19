@@ -2,7 +2,7 @@
   "name": "EduNuageUSB",
   "version": "1.0.0",
   "description": "Un outil pour sauvegarder facilement sa clef USB sur le cloud officiel de l'éducation nationnale",
-  "main": "main.js",
+  "main": "./src/main/app.js",
   "scripts": {
     "start": "electron ."
   },
