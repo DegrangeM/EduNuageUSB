@@ -2,7 +2,7 @@ const { BrowserWindow } = require('electron')
 const path = require('path')
 const spawn = require('child_process').spawn;
 
-function sauvegarder(EduNuageUSB) {
+function restaurer(EduNuageUSB) {
     return () => {
         EduNuageUSB.restoreWindow = new BrowserWindow({
             width: 800,
@@ -58,4 +58,4 @@ function sauvegarder(EduNuageUSB) {
     }
 }
 
-module.exports = sauvegarder;
+module.exports = restaurer;
