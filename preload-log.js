@@ -7,7 +7,6 @@ window.addEventListener('DOMContentLoaded', () => {
             logNode.innerHTML += text + "<br />";
         } else {
             logNode.appendChild(document.createTextNode(text));
-            //logNode.textContent += text + "\r\n";
         }
         window.scrollTo(0, document.body.scrollHeight);
     });
