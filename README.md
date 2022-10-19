@@ -28,12 +28,18 @@ Veuillez noter que ce sera le dossier parent au dossier du logiciel qui sera sau
 
 Veuillez noter que vos documents seront stocké sur le cloud nationnal de l'Éducation Nationnale dans un dossier `EduNuageUSB`. Attention, après la sauvegarde le contenu du dossier `EduNuageUSB` présent sur le cloud de l'EN sera entièrement remplacé par le contenu de votre clef USB. Si par exemple vous sauvegardez une première fois votre clef USB, que vous effacé ensuite par erreur un fichier important de votre clef USB, et que vous sauvegardez à nouveau votre clef USB, alors le fichier effacé par erreur sera perdu.
 
+A noter que le logiciel travail de manière intélligente et ne re-télécharge pas à nouveau les fichiers qui n'ont pas été modifiés. La première sauvegarde prendra donc un peu de temps mais les suivantes devraient être très rapides.
+
 ### Restauration
 
 Cliquez sur le bouton `Restaurer` pour restaurer le contenu de votre clef USB.
 
 Cette procédure est partiellement non destructive : le contenu sauvegardé viendra s'ajouter au contenu de votre clef USB sans effacer le contenu présent (sauf en cas de doublon, dans ce cas là le contenu sera remplacé). Ainsi si vous avez effacé par erreur un fichier de votre clef USB, vous pouvez appuyer sur le bouton Restaurer poru le récupérer. Même si vous avez depuis votre dernière sauvegarde créé d'autres fichiers sur votre clef USB, ceux-ci ne seront pas supprimés. Attention cependant, si vous avez modifié un fichier, dans ce cas là c'est l'ancienne version du fichier (au moment de votre dernière sauvegarde) qui sera récupérée. Si vous avez modifié des fichiers depuis votre dernière sauvegarde, il est conseillé de se connecter directement via l'interface web du cloud de l'éducation nationnale pour récupérer les fichiers supprimés par erreur.
 
+### Se déconnecter
+
+Vous pouvez cliquer sur le lien pour se déconnecter si vous le souhaitez. A noter que cela n'effacera pas les fichiers déjà sauvegardé. Il n'est pas utile (c'est même déconseillé) de se déconnecter après chaque utilisation du logiciel.
+
 ### Remarques
 
--
+Les opérations de sauvegardes et de restaurations sont en réalité réalisées par le logiciel `rclone`. EduNuageUSB se contente de simplifier l'usage de ce logiciel rclone (qui s'utilise en ligne de commande) et de facilité la connexion académique.
