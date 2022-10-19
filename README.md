@@ -55,4 +55,4 @@ Vous pouvez cliquer sur le lien pour se déconnecter si vous le souhaitez. A not
 
 ### Remarques
 
-Les opérations de sauvegardes et de restaurations sont en réalité réalisées par le logiciel `rclone`. EduNuageUSB se contente de simplifier l'usage de ce logiciel rclone (qui s'utilise en ligne de commande) et de facilité la connexion académique.
+Les opérations de sauvegardes et de restaurations sont en réalité réalisées par le logiciel `rclone`. EduNuageUSB se contente de simplifier l'usage de ce logiciel rclone (qui s'utilise en ligne de commande) et de faciliter la connexion académique.
