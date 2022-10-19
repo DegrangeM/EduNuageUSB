@@ -85,10 +85,7 @@ web_modules/
 
 # Next.js build output
 .next
-out/*
-
-# Sauf sortie zip
-!/out/make/
+out
 
 # Nuxt.js build / generate output
 .nuxt
