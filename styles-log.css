@@ -1,9 +1,22 @@
-html,body {
+html,
+body {
     margin: 0px;
     padding: 5px;
+}
+
+body {
     background: #ABC;
 }
+
 #log {
-    font-family: monospace; 
+    font-family: monospace;
     white-space: pre-wrap;
+}
+
+body.sauvegarder {
+    background-color: #5A5;
+}
+
+body.restaurer {
+    background-color: #55F;
 }

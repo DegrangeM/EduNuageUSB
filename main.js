@@ -75,6 +75,8 @@ function login() {
   EduNuageUSB.loginWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    parent: EduNuageUSB.mainWindow,
+    modal: true,
     autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
@@ -163,10 +165,12 @@ function logout() {
 function sauvegarder() {
 
   EduNuageUSB.saveWindow = new BrowserWindow({
-    width: 600,
+    width: 800,
     height: 400,
     useContentSize: true,
     autoHideMenuBar: true,
+    parent: EduNuageUSB.mainWindow,
+    modal: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload-log.js')
     },
@@ -175,7 +179,8 @@ function sauvegarder() {
   EduNuageUSB.saveWindow.loadFile('log.html')
   EduNuageUSB.saveWindow.webContents.on('dom-ready', function () {
     EduNuageUSB.saveWindow.webContents.send('title', 'Sauvegarde');
-    EduNuageUSB.saveWindow.webContents.send('log', "<b style='color:green;'>Début de la sauvegarde ...</b><br />", true);
+    EduNuageUSB.saveWindow.webContents.send('class', 'sauvegarder');
+    EduNuageUSB.saveWindow.webContents.send('log', "<b style='color:white;'>Début de la sauvegarde ...</b><br />", true);
     const rclone = spawn(".\\rclone\\rclone.exe",
       [
         'sync',
@@ -203,7 +208,7 @@ function sauvegarder() {
     });
     rclone.on('exit', function () {
       try {
-        EduNuageUSB.saveWindow.webContents.send('log', "<b style='color:green;'>Sauvegarde terminée !</b>", true);
+        EduNuageUSB.saveWindow.webContents.send('log', "<b style='color:white;'>Sauvegarde terminée !</b>", true);
       } catch (e) {
         console.log(e);
       }
@@ -220,11 +225,14 @@ function sauvegarder() {
 }
 
 function restaurer() {
+
   EduNuageUSB.restoreWindow = new BrowserWindow({
-    width: 600,
+    width: 800,
     height: 400,
     useContentSize: true,
     autoHideMenuBar: true,
+    parent: EduNuageUSB.mainWindow,
+    modal: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload-log.js')
     },
@@ -233,7 +241,8 @@ function restaurer() {
   EduNuageUSB.restoreWindow.loadFile('log.html')
   EduNuageUSB.restoreWindow.webContents.on('dom-ready', function () {
     EduNuageUSB.restoreWindow.webContents.send('title', 'Restauration');
-    EduNuageUSB.restoreWindow.webContents.send('log', "<b style='color:green;'>Début de la restauration ...</b><br />", true);
+    EduNuageUSB.restoreWindow.webContents.send('class', 'restaurer');
+    EduNuageUSB.restoreWindow.webContents.send('log', "<b style='color:white;'>Début de la restauration ...</b><br />", true);
     const rclone = spawn(".\\rclone\\rclone.exe",
       [
         'copy',
@@ -255,7 +264,7 @@ function restaurer() {
     });
     rclone.on('exit', function () {
       try {
-        EduNuageUSB.restoreWindow.webContents.send('log', "<b style='color:green;'>Restauration terminée !</b>", true);
+        EduNuageUSB.restoreWindow.webContents.send('log', "<b style='color:white;'>Restauration terminée !</b>", true);
       } catch (e) {
         console.log(e);
       }

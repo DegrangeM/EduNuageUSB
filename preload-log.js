@@ -13,4 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
     ipcRenderer.on('title', (_event, value) => {
         document.title = value;
     });
+    ipcRenderer.on('class', (_event, value) => {
+        document.body.classList.add(value);
+    });
 })
