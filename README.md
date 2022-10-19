@@ -36,6 +36,12 @@ Cliquez sur le bouton `Restaurer` pour restaurer le contenu de votre clef USB.
 
 Cette procédure est partiellement non destructive : le contenu sauvegardé viendra s'ajouter au contenu de votre clef USB sans effacer le contenu présent (sauf en cas de doublon, dans ce cas là le contenu sera remplacé). Ainsi si vous avez effacé par erreur un fichier de votre clef USB, vous pouvez appuyer sur le bouton Restaurer poru le récupérer. Même si vous avez depuis votre dernière sauvegarde créé d'autres fichiers sur votre clef USB, ceux-ci ne seront pas supprimés. Attention cependant, si vous avez modifié un fichier, dans ce cas là c'est l'ancienne version du fichier (au moment de votre dernière sauvegarde) qui sera récupérée. Si vous avez modifié des fichiers depuis votre dernière sauvegarde, il est conseillé de se connecter directement via l'interface web du cloud de l'éducation nationnale pour récupérer les fichiers supprimés par erreur.
 
+### Accéder à ses fichiers depuis le web
+
+Les fichiers sont stockés sur le cloud de l'Éducation Nationale. Vous pouvez accéder à tout moment à vos fichiers sauvegarder via l'adresse habituelle : https://nuage.apps.education.fr/
+
+Pratique si vous avez oublié votre clef usb !
+
 ### Se déconnecter
 
 Vous pouvez cliquer sur le lien pour se déconnecter si vous le souhaitez. A noter que cela n'effacera pas les fichiers déjà sauvegardé. Il n'est pas utile (c'est même déconseillé) de se déconnecter après chaque utilisation du logiciel.
