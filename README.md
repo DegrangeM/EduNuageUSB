@@ -20,7 +20,7 @@ Ouvrez le dossier du logiciel et exécutez le fichier `EduNuageUSB.exe`.
 
 Cliquez ensuite sur le lien pour se connecter, et connectez vous avec votre identifiants académiques habituels.
 
-Veuillez noter que l'application n'enregistre pas vos identifiants académiques. En revanche, elle génère une mot de passe spécial aléatoire lui permettant d'accéder directement à vos fichier sur le cloud de l'Éducation Nationale. Ce mot de passe ne permet pas d'accéder aux autres applications académiques et reste stocké sur votre clef USB (il n'est pas communiqué à un tier).
+Veuillez noter que l'application n'enregistre pas vos identifiants académiques. En revanche, elle génère une mot de passe spécial aléatoire lui permettant d'accéder directement à vos fichier sur le cloud de l'Éducation Nationale. Ce mot de passe ne permet pas d'accéder aux autres applications académiques et reste stocké sur votre clef USB (il n'est pas communiqué à un tier). Attention cependant, toute personne ayant en possession votre clef USB aura en théorie accès à tous vos documents sur votre cloud.
 
 ### Sauvegarde
 
