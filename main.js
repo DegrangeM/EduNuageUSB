@@ -2,6 +2,7 @@
 const { app, BrowserWindow, dialog, ipcMain } = require('electron')
 const path = require('path')
 const execFile = require('child_process').execFile;
+const spawn = require('child_process').spawn;
 const fs = require('fs')
 const ini = require('ini');
 
@@ -160,24 +161,45 @@ function logout() {
 
 function sauvegarder() {
   // Je n'ai pas trouvé comment afficher la console rclone, il va donc falloir afficher soit-même les messages.
-  execFile(".\\rclone\\rclone.exe",
-  [
-   // 'rcd',
-    //'--rc-web-gui',
-    'sync',
-    '.',
-    'EduNuageUSB:EduNuageUSB',
-    '--stats',
-    '5s',
-    '-v',
-    '--config',
-    './.rclone.conf',
-  ], function (error, stdout, stderr) { // rclone utilise stderr
-    console.log(error);
-    console.log(stdout)
-    console.log(stderr);
-  }
-);
+
+  // N'affiche qu'au dernier moment, il faut faire comme dans le commit précédent
+  // voir aussi https://stackoverflow.com/questions/22337446/how-to-wait-for-a-child-process-to-finish-in-node-js
+
+  EduNuageUSB.saveWindow = new BrowserWindow({
+    width: 600,
+    height: 150,
+    useContentSize: true,
+    autoHideMenuBar: true,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload-log.js')
+    },
+    icon: path.join(__dirname, 'logo.png')
+  });
+  EduNuageUSB.saveWindow.loadFile('log.html')
+  EduNuageUSB.saveWindow.webContents.on('dom-ready', function () {
+    EduNuageUSB.saveWindow.webContents.send('title', 'Sauvegarde');
+    EduNuageUSB.saveWindow.webContents.send('log', 'Début de la sauvegarde ...');
+    const rclone = spawn(".\\rclone\\rclone.exe",
+      [
+        // 'rcd',
+        //'--rc-web-gui',
+        'sync',
+        '.',
+        'EduNuageUSB:EduNuageUSB',
+        '--stats',
+        '1s',
+        '-v',
+        '--config',
+        './.rclone.conf',
+      ]
+    );
+    rclone.stderr.on('data', function (data) {
+      EduNuageUSB.saveWindow.webContents.send('log', data.toString());
+    });
+  });
+
+
+
 
 }
 
