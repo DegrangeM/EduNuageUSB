@@ -33,8 +33,6 @@ function sauvegarder(EduNuageUSB) {
                     '-v',
                     '--exclude-if-present',
                     'nepassauvegarder.txt',
-                    '--filter-from',
-                    'filtres.txt',
                     '--delete-excluded',
                     '--delete-before'
                 ]
