@@ -25,7 +25,7 @@ function restaurer(EduNuageUSB) {
                 [
                     'copy',
                     'EduNuageUSB:EduNuageUSB',
-                    '.',
+                    '..',
                     '--config',
                     './.rclone.conf',
                     '--stats',

@@ -24,7 +24,7 @@ function sauvegarder(EduNuageUSB) {
             const rclone = spawn(".\\rclone\\rclone.exe",
                 [
                     'sync',
-                    '.',
+                    '..',
                     'EduNuageUSB:EduNuageUSB',
                     '--config',
                     './.rclone.conf',
