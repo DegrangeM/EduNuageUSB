@@ -160,10 +160,6 @@ function logout() {
 }
 
 function sauvegarder() {
-  // Je n'ai pas trouvé comment afficher la console rclone, il va donc falloir afficher soit-même les messages.
-
-  // N'affiche qu'au dernier moment, il faut faire comme dans le commit précédent
-  // voir aussi https://stackoverflow.com/questions/22337446/how-to-wait-for-a-child-process-to-finish-in-node-js
 
   EduNuageUSB.saveWindow = new BrowserWindow({
     width: 600,
@@ -226,5 +222,54 @@ function sauvegarder() {
 }
 
 function restaurer() {
+
+  EduNuageUSB.restoreWindow = new BrowserWindow({
+    width: 600,
+    height: 400,
+    useContentSize: true,
+    autoHideMenuBar: true,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload-log.js')
+    },
+    icon: path.join(__dirname, 'logo.png')
+  });
+  EduNuageUSB.restoreWindow.loadFile('log.html')
+  EduNuageUSB.restoreWindow.webContents.on('dom-ready', function () {
+    EduNuageUSB.restoreWindow.webContents.send('title', 'Restauration');
+    EduNuageUSB.restoreWindow.webContents.send('log', "<b style='color:green;'>Début de la restauration ...</b><br />", true);
+    const rclone = spawn(".\\rclone\\rclone.exe",
+      [
+        'copy',
+        'EduNuageUSB:EduNuageUSB',
+        '.',
+        '--config',
+        './.rclone.conf',
+        '--stats',
+        '1s',
+        '-v'
+      ]
+    );
+    rclone.stderr.on('data', function (data) {
+      try {
+        EduNuageUSB.saveWindow.webContents.send('log', data.toString());
+      } catch (e) {
+        console.log(e);
+      }
+    });
+    rclone.on('exit', function () {
+      try {
+        EduNuageUSB.saveWindow.webContents.send('log', "<b style='color:green;'>Restauration terminée !</b>", true);
+      } catch (e) {
+        console.log(e);
+      }
+    });
+    EduNuageUSB.saveWindow.on('close', function () {
+      try {
+        rclone.kill();
+      } catch (e) {
+        console.log(e);
+      }
+    })
+  });
 
 }

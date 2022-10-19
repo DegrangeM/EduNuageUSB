@@ -15,6 +15,8 @@ async function render() {
 
     saveButton.addEventListener('click', EduNuageUSB.sauvegarder);
 
+    restaureButton.addEventListener('click', EduNuageUSB.restaurer);
+
 
 }
 
