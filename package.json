@@ -6,12 +6,12 @@
   "scripts": {
     "start": "electron ."
   },
-  "repository": "",
-  "keywords": [
-  ],
+  "repository": "https://github.com/DegrangeM/EduNuageUSB",
+  "keywords": [],
   "author": "Mathieu Degrange",
-  "license": "",
+  "license": "MIT",
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.67",
     "electron": "^21.1.0"
   }
 }
