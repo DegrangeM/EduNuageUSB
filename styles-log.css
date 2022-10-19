@@ -1,0 +1,9 @@
+html,body {
+    margin: 0px;
+    padding: 5px;
+    background: #ABC;
+}
+#log {
+    font-family: monospace; 
+    white-space: pre-wrap;
+}
