@@ -1,4 +1,4 @@
-const { BrowserWindow } = require('electron')
+const { BrowserWindow, session } = require('electron')
 const path = require('path')
 const execFile = require('child_process').execFile;
 
@@ -19,8 +19,13 @@ function login(EduNuageUSB) {
             const currentURL = new URL(this.getURL())
             if (/^nuage[0-9]+\.apps\.education\.fr$/.test(currentURL.hostname)) {
                 if (currentURL.pathname === '/index.php/logout') {
+                    // La page de déconnexion a été chargée, on peut fermer la fenêtre
                     EduNuageUSB.loginWindow.close();
+                    // On efface les cookies afin de déconnecter immédiatement la connexion à l'authentification académique
+                    //https://github.com/electron/electron/blob/main/docs/api/session.md
+                    session.defaultSession.clearStorageData();
                 } else {
+                    // On est conencté au nextcloud, on masque la fenêtre et génère le token d'application
                     EduNuageUSB.loginWindow.hide();
                     EduNuageUSB.loginWindow.webContents.executeJavaScript(
                         `fetch(new URL(location.href).origin + '/index.php/settings/personal/authtokens', {
@@ -41,6 +46,7 @@ function login(EduNuageUSB) {
                         }
                     ).then(
                         r => {
+                            // On redirige vers la page de déconnexion afin de retirer la session de la liste des connexions actives
                             EduNuageUSB.loginWindow.webContents.executeJavaScript('location.href = new URL(location.href).origin + "/index.php/logout?requesttoken=" + window.oc_requesttoken;', true);
                             loginName = r.loginName;
                             token = r.token;
