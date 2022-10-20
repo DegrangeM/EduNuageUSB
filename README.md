@@ -28,7 +28,7 @@ Veuillez noter que l'application n'enregistre pas vos identifiants académiques.
 
 ### Sauvegarde
 
-Cliquez sur le bouton `Sauvegarder` pour sauvegarder le contenu de votre clef USB. Vous verrez alors défiller pleins d'informations (en sauvegarde) vous indiquant la progression de la sauvegarde (astuce : la durée à droite de ETA indique le temps restant estimé). Attendez jusqu'à ce que le message vous indiquant que la clef USB a bien été sauvegardé avant de fermer la fenêtre.
+Cliquez sur le bouton `Sauvegarder` pour sauvegarder le contenu de votre clef USB. Vous verrez alors défiller pleins d'informations (en sauvegarde) vous indiquant la progression de la sauvegarde (astuce : la durée à droite de ETA indique le temps restant estimé). Attendez jusqu'à ce que le message vous indiquant que la clef USB a bien été sauvegardé avant de fermer la fenêtre (si la sauvegarde a été très rapide, pensez à regarder si il n'y a pas eu de message d'erreur en anglais).
 
 <img src="https://user-images.githubusercontent.com/53106394/196750169-ed8eedeb-c85a-4edb-bed7-14042b054627.png" height="250px" align="right" />
 
