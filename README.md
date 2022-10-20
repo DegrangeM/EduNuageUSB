@@ -64,3 +64,7 @@ Vous pouvez cliquer sur le lien pour se déconnecter si vous le souhaitez. A not
 - Avant toute première utilisation, il est conseillé d'effectuer une sauvegarde de ses fichiers (sur le cloud et sur sa clef USB) ailleurs en cas de mauvaise manipulation ou de dysfonctionnement du logiciel (normalement tout devrait fonctionner mais je ne suis pas responsable de toute perte de documents).
 
 - Si vous ne souhaitez pas sauvegarder un dossier, vous pouvez créer un fichier ` nepassauvegarder.txt` dans ce dossier (le contenu du fichier peut être vide). Ce dossier ne sera alors pas sauvegardé.
+
+### Comparaison avec le client de synchronisation classique de Nextcloud
+
+Pour synchroniser des fichiers sur votre ordinateurs en temps réel, vous pouvez utiliser le client de synchronisation Nextcloud ([tutoriel](https://forum.eole.education/t/tuto-mettre-en-place-la-synchronisation-entre-nextcloud-et-son-ordinateur/69)). Ce client officiel de synchronisation Nextcloud qui s'installe sur votre ordinateur a l'avantage de synchroniser en temps réels vos fichiers. En revanche, ce logiciel ne fonctionne pas bien avec les clefs USB : il faut l'installer sur chaque ordinateur sur lequel vous souhaitez utiliser votre clef et en cas de changement de lettre de votre clef USB (ex : `F:\\`, `G:\`, etc.). EduNuageUSB n'a pas ce problème, et permet en plus d'éviter d'avoir en permnance le logiciel de synchronisation qui tourne sur votre ordinateur. De plus, EduNuageUSB est très simple à configurer.
