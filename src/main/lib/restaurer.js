@@ -40,9 +40,15 @@ function restaurer(EduNuageUSB) {
                     console.log(e);
                 }
             });
-            rclone.on('exit', function () {
+            rclone.on('exit', function (errorCode) {
                 try {
-                    EduNuageUSB.restoreWindow.webContents.send('log', "<b style='color:white;'>Restauration terminée !</b>", true);
+                    if (errorCode === 0) {
+                        EduNuageUSB.restoreWindow.webContents.send('log', "<b style='color:white;'>Restauration terminée !</b>", true);
+                    } else {
+                        EduNuageUSB.restoreWindow.webContents.send('log', "<b style='color:red;background-color:white;'>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</b>", true);
+                        EduNuageUSB.restoreWindow.webContents.send('log', "<b style='color:red;background-color:white;'>! Erreur lors de la restauration !</b>", true);
+                        EduNuageUSB.restoreWindow.webContents.send('log', "<b style='color:red;background-color:white;'>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</b>", true);
+                    }
                 } catch (e) {
                     console.log(e);
                 }
