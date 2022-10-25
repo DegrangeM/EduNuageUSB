@@ -34,7 +34,7 @@ Cliquez sur le bouton `Sauvegarder` pour sauvegarder le contenu de votre clef US
 
 Veuillez noter que ce sera le dossier parent au dossier du logiciel qui sera sauvegardé (c'est à dire le dossier dans lequel se trouve le dossier du logiciel). Si vous avez mis le dossier à la racine de votre clef USB, ce sera toute votre clef USB qui sera sauvegardé, mais si vous avez mis le dossier du logiciel dans un dossier `Cours` par exemple, alors ce sera votre dossier `Cours` qui sera sauvegarder.
 
-Veuillez noter que vos documents seront stocké sur le cloud nationnal de l'Éducation Nationnale dans un dossier `EduNuageUSB`. Attention, après la sauvegarde le contenu du dossier `EduNuageUSB` présent sur le cloud de l'EN sera entièrement remplacé par le contenu de votre clef USB. Si par exemple vous sauvegardez une première fois votre clef USB, que vous effacé ensuite par erreur un fichier important de votre clef USB, et que vous sauvegardez à nouveau votre clef USB, alors le fichier effacé par erreur sera perdu.
+Veuillez noter que vos documents seront stocké sur le cloud nationnal de l'Éducation Nationnale dans un dossier `EduNuageUSB`. Attention, après la sauvegarde le contenu du dossier `EduNuageUSB` présent sur le cloud de l'EN sera entièrement remplacé par le contenu de votre clef USB. Si par exemple vous sauvegardez une première fois votre clef USB, que vous effacez ensuite par erreur un fichier important de votre clef USB, et que vous sauvegardez à nouveau votre clef USB, alors le fichier effacé par erreur sera perdu.
 
 A noter que le logiciel travail de manière intélligente et ne re-télécharge pas à nouveau les fichiers qui n'ont pas été modifiés. La première sauvegarde prendra donc un peu de temps mais les suivantes devraient être très rapides.
 
