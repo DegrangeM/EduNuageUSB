@@ -5,4 +5,5 @@ contextBridge.exposeInMainWorld('EduNuageUSB', {
   restaurer: () => ipcRenderer.invoke('restaurer'),
   login: () => ipcRenderer.invoke('login'),
   logout: () => ipcRenderer.invoke('logout'),
+  openNC: () => ipcRenderer.invoke('openNC'),
 })
