@@ -1,3 +1,4 @@
+const { session } = require('electron')
 const path = require('path')
 const execFile = require('child_process').execFile;
 
@@ -16,6 +17,7 @@ function logout(EduNuageUSB) {
                 console.log(data.toString());
             }
         );
+        session.defaultSession.clearStorageData(); // On vide les cookies au cas où ...
         EduNuageUSB.mainWindow.loadFile(path.join(__dirname, '../../renderer/index.html'))
     }
 }
