@@ -24,7 +24,7 @@ Ouvrez le dossier du logiciel et exécutez le fichier `EduNuageUSB.exe`.
 
 Cliquez ensuite sur le lien pour se connecter, et connectez vous avec votre identifiants académiques habituels.
 
-Veuillez noter que l'application n'enregistre pas vos identifiants académiques. En revanche, elle génère une mot de passe spécial aléatoire lui permettant d'accéder directement à vos fichier sur le cloud de l'Éducation Nationale. Ce mot de passe ne permet pas d'accéder aux autres applications académiques et reste stocké sur votre clef USB (il n'est pas communiqué à un tier). Attention cependant, toute personne ayant en possession votre clef USB aura en théorie accès à tous vos documents sur votre cloud.
+Veuillez noter que l'application n'enregistre pas vos identifiants académiques. En revanche, elle génère un mot de passe spécial aléatoire lui permettant d'accéder directement à vos fichiers sur le cloud de l'Éducation Nationale. Ce mot de passe ne permet pas d'accéder aux autres applications académiques et reste stocké sur votre clef USB (il n'est pas communiqué à un tier). Attention cependant, toute personne ayant en possession votre clef USB aura en théorie accès à tous vos documents sur votre cloud.
 
 ### Sauvegarde
 
@@ -34,9 +34,9 @@ Cliquez sur le bouton `Sauvegarder` pour sauvegarder le contenu de votre clef US
 
 Veuillez noter que ce sera le dossier parent au dossier du logiciel qui sera sauvegardé (c'est à dire le dossier dans lequel se trouve le dossier du logiciel). Si vous avez mis le dossier à la racine de votre clef USB, ce sera toute votre clef USB qui sera sauvegardé, mais si vous avez mis le dossier du logiciel dans un dossier `Cours` par exemple, alors ce sera votre dossier `Cours` qui sera sauvegarder.
 
-Veuillez noter que vos documents seront stocké sur le cloud nationnal de l'Éducation Nationnale dans un dossier `EduNuageUSB`. Attention, après la sauvegarde le contenu du dossier `EduNuageUSB` présent sur le cloud de l'EN sera entièrement remplacé par le contenu de votre clef USB. Si par exemple vous sauvegardez une première fois votre clef USB, que vous effacé ensuite par erreur un fichier important de votre clef USB, et que vous sauvegardez à nouveau votre clef USB, alors le fichier effacé par erreur sera perdu.
+Veuillez noter que vos documents seront stockés sur le cloud national de l'Éducation Nationale dans un dossier `EduNuageUSB`. Attention, après la sauvegarde le contenu du dossier `EduNuageUSB` présent sur le cloud de l'EN sera entièrement remplacé par le contenu de votre clef USB. Si par exemple vous sauvegardez une première fois votre clef USB, que vous effacez ensuite par erreur un fichier important de votre clef USB, et que vous sauvegardez à nouveau votre clef USB, alors le fichier effacé par erreur sera perdu.
 
-A noter que le logiciel travail de manière intélligente et ne re-télécharge pas à nouveau les fichiers qui n'ont pas été modifiés. La première sauvegarde prendra donc un peu de temps mais les suivantes devraient être très rapides.
+A noter que le logiciel travail de manière intelligente et ne re-télécharge pas à nouveau les fichiers qui n'ont pas été modifiés. La première sauvegarde prendra donc un peu de temps mais les suivantes devraient être très rapides.
 
 ### Restauration
 
@@ -45,7 +45,7 @@ Cliquez sur le bouton `Restaurer` pour restaurer le contenu de votre clef USB.
 <img src="https://user-images.githubusercontent.com/53106394/196750715-7e2d42db-764c-4aa3-9c14-f2c8cb4ed67a.png" height="250px" align="right" />
 
 
-Cette procédure est partiellement non destructive : le contenu sauvegardé viendra s'ajouter au contenu de votre clef USB sans effacer le contenu présent (sauf en cas de doublon, dans ce cas là le contenu sera remplacé). Ainsi si vous avez effacé par erreur un fichier de votre clef USB, vous pouvez appuyer sur le bouton Restaurer poru le récupérer. Même si vous avez depuis votre dernière sauvegarde créé d'autres fichiers sur votre clef USB, ceux-ci ne seront pas supprimés. Attention cependant, si vous avez modifié un fichier, dans ce cas là c'est l'ancienne version du fichier (au moment de votre dernière sauvegarde) qui sera récupérée. Si vous avez modifié des fichiers depuis votre dernière sauvegarde, il est conseillé de se connecter directement via l'interface web du cloud de l'éducation nationnale pour récupérer les fichiers supprimés par erreur.
+Cette procédure est partiellement non destructive : le contenu sauvegardé viendra s'ajouter au contenu de votre clef USB sans effacer le contenu présent (sauf en cas de doublon, dans ce cas-là le contenu sera remplacé). Ainsi si vous avez effacé par erreur un fichier de votre clef USB, vous pouvez appuyer sur le bouton Restaurer pour le récupérer. Même si vous avez depuis votre dernière sauvegarde créée d'autres fichiers sur votre clef USB, ceux-ci ne seront pas supprimés. Attention cependant, si vous avez modifié un fichier, dans ce cas-là c'est l'ancienne version du fichier (au moment de votre dernière sauvegarde) qui sera récupérée. Si vous avez modifié des fichiers depuis votre dernière sauvegarde, il est conseillé de se connecter directement via l'interface web du cloud de l'éducation nationale pour récupérer les fichiers supprimés par erreur.
 
 ### Accéder à ses fichiers depuis le web
 
@@ -67,4 +67,11 @@ Vous pouvez cliquer sur le lien pour se déconnecter si vous le souhaitez. A not
 
 ### Comparaison avec le client de synchronisation classique de Nextcloud
 
-Pour synchroniser des fichiers sur votre ordinateurs en temps réel, vous pouvez utiliser le client de synchronisation Nextcloud ([tutoriel](https://forum.eole.education/t/tuto-mettre-en-place-la-synchronisation-entre-nextcloud-et-son-ordinateur/69)). Ce client officiel de synchronisation Nextcloud qui s'installe sur votre ordinateur a l'avantage de synchroniser en temps réels vos fichiers. En revanche, ce logiciel ne fonctionne pas bien avec les clefs USB : il faut l'installer sur chaque ordinateur sur lequel vous souhaitez utiliser votre clef et en cas de changement de lettre de votre clef USB (ex : `F:\\`, `G:\`, etc.). EduNuageUSB n'a pas ce problème, et permet en plus d'éviter d'avoir en permnance le logiciel de synchronisation qui tourne sur votre ordinateur. De plus, EduNuageUSB est très simple à configurer.
+Pour synchroniser des fichiers sur votre ordinateurs en temps réel, vous pouvez utiliser le client de synchronisation Nextcloud ([tutoriel](https://forum.eole.education/t/tuto-mettre-en-place-la-synchronisation-entre-nextcloud-et-son-ordinateur/69)). Ce client officiel de synchronisation Nextcloud qui s'installe sur votre ordinateur a l'avantage de synchroniser en temps réels vos fichiers. En revanche, ce logiciel ne fonctionne pas bien avec les clefs USB : il faut l'installer sur chaque ordinateur sur lequel vous souhaitez utiliser votre clef et peut ne plus fonctionner en cas de changement de lettre de votre clef USB (ex : `F:\`, `G:\`, etc.). EduNuageUSB n'a pas ce problème, et permet en plus d'éviter d'avoir en permnance le logiciel de synchronisation qui tourne sur votre ordinateur. De plus, EduNuageUSB est très simple à configurer.
+
+|                               | Application Nextcloud | EduNuageUSB |
+|-------------------------------|:---------------------:|:-----------:|
+| Facile à configurer           |          Non          |     Oui     |
+| Facile à utiliser             |          Oui          |     Oui     |
+| Synchronisation en temps réel |          Oui          |     Non     |
+| Fonctionne avec les clefs USB |     Partiellement     |     Oui     |
