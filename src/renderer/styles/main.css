@@ -35,6 +35,12 @@ body.logged-out .logged-in {
     display: none;
 }
 
+#account-name {
+    font-weight: bold;
+    color: inherit;
+    text-decoration: inherit;
+}
+
 #logo {
     width: 20%;
     text-align: center;

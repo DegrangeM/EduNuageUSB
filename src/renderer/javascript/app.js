@@ -4,6 +4,7 @@ async function render() {
 
     if(account) {
         document.getElementById('account-name').textContent = account.username;
+        document.getElementById('account-name').setAttribute('href', 'https://' + account.server + '/index.php/apps/files/?dir=/EduNuageUSB');
         document.body.classList.remove('logged-out');
         document.getElementById('link-logout').addEventListener('click', EduNuageUSB.logout);
     } else {
