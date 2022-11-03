@@ -30,6 +30,8 @@
         "icon": "./resources/logo",
         "ignore": [
           "\\.rclone\\.conf$"
+        ],
+        "extraResource": [
         ]
       },
       "makers": [
