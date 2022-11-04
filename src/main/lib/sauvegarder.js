@@ -21,7 +21,7 @@ function sauvegarder(EduNuageUSB) {
             EduNuageUSB.saveWindow.webContents.send('title', 'Sauvegarde');
             EduNuageUSB.saveWindow.webContents.send('class', 'sauvegarder');
             EduNuageUSB.saveWindow.webContents.send('log', "<b style='color:white;'>Début de la sauvegarde ...</b><br />", true);
-            const folderEduNuageUSB = path.relative(path.join(__dirname, "../../../../"),path.join(__dirname, "../../../"));
+            const folderEduNuageUSB = path.relative("..",".");
             const rclone = spawn(path.join(__dirname, "../../../rclone/rclone.exe"),
                 [
                     'sync',
