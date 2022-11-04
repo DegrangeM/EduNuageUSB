@@ -59,7 +59,7 @@ Vous pouvez aussi, une fois connecté à EduNuageUSB, cliquer sur votre nom afin
 
 Vous pouvez cliquer sur le lien pour se déconnecter si vous le souhaitez. A noter que cela n'effacera pas les fichiers déjà sauvegardé. Il n'est pas utile (c'est même déconseillé) de se déconnecter après chaque utilisation du logiciel. Si vous souhaitez en savoir plus sur la sécurité, vous pouvez cliquer <a href="https://github.com/DegrangeM/EduNuageUSB/wiki/S%C3%A9curit%C3%A9">ici</a>.
 
-### Remarques
+## Remarques
 
 - Les opérations de sauvegardes et de restaurations sont en réalité réalisées par le logiciel `rclone`. EduNuageUSB se contente de simplifier l'usage de ce logiciel rclone (qui s'utilise en ligne de commande) et de faciliter la connexion académique.
 
@@ -67,7 +67,9 @@ Vous pouvez cliquer sur le lien pour se déconnecter si vous le souhaitez. A not
 
 - Si vous ne souhaitez pas sauvegarder un dossier, vous pouvez créer un fichier ` nepassauvegarder.txt` dans ce dossier (le contenu du fichier peut être vide). Ce dossier ne sera alors pas sauvegardé.
 
-### Comparaison avec le client de synchronisation classique de Nextcloud
+- Il est possible que le réseau de l'établissement bloque l'utilisation du logiciel, auquel cas il faudra effectuer les sauvegardes depuis chez vous.
+
+## Comparaison avec le client de synchronisation classique de Nextcloud
 
 Pour synchroniser des fichiers sur votre ordinateurs en temps réel, vous pouvez utiliser le client de synchronisation Nextcloud ([tutoriel](https://forum.eole.education/t/tuto-mettre-en-place-la-synchronisation-entre-nextcloud-et-son-ordinateur/69)). Ce client officiel de synchronisation Nextcloud qui s'installe sur votre ordinateur a l'avantage de synchroniser en temps réels vos fichiers. En revanche, ce logiciel ne fonctionne pas bien avec les clefs USB : il faut l'installer sur chaque ordinateur sur lequel vous souhaitez utiliser votre clef et peut ne plus fonctionner en cas de changement de lettre de votre clef USB (ex : `F:\`, `G:\`, etc.). EduNuageUSB n'a pas ce problème, et permet en plus d'éviter d'avoir en permnance le logiciel de synchronisation qui tourne sur votre ordinateur. De plus, EduNuageUSB est très simple à configurer. De plus, dans le cadre de sauvegardes, il peut être justement problématique que la synchrisation se fasse en temps réel afin de ne pas synchroniser la suppression d'un fichier (même si, heureusement, NextCloud dispose d'une corbeille).
 
