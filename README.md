@@ -53,7 +53,7 @@ Les fichiers sont stockés sur le cloud de l'Éducation Nationale. Vous pouvez a
 
 Pratique si vous avez oublié votre clef usb !
 
-Vous pouvez aussi, une fois connecté à EduNuageUSB, cliquer sur votre nom afin d'ouvrir directement vos fichiers sur votre navigateur habituels. Il faudra en revanche vous reconnecter.
+Vous pouvez aussi, une fois connecté à EduNuageUSB, cliquer sur votre nom afin d'ouvrir directement la version web du cloud de l'Éducation Nationale (avec le dossier contenant vos fichiers sauvegardés d'ouvert) sur votre navigateur habituels. Il faudra en revanche vous reconnecter.
 
 ### Se déconnecter
 
