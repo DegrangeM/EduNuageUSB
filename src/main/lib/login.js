@@ -61,7 +61,7 @@ function login(EduNuageUSB) {
                                     'EduNuageUSB',
                                     'webdav',
                                     'vendor=nextcloud',
-                                    'url=https://nuage03.apps.education.fr/remote.php/dav/files/' + loginName + '/',
+                                    'url=https://' + EduNuageUSB.account.server + '/remote.php/dav/files/' + loginName + '/',
                                     'user=' + loginName,
                                     'pass=' + token,
                                     '--obscure',
