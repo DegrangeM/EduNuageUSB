@@ -1,6 +1,7 @@
 const { BrowserWindow, session } = require('electron')
 const path = require('path')
 const execFile = require('child_process').execFile;
+const fs = require('fs')
 
 function login(EduNuageUSB) {
     return () => {
@@ -17,6 +18,9 @@ function login(EduNuageUSB) {
 
         EduNuageUSB.loginWindow.webContents.on('dom-ready', function () {
             const currentURL = new URL(this.getURL())
+            if(EduNuageUSB.log) {
+                fs.appendFile('log.txt', currentURL + '\n', () => {});
+            }
             if (/^nuage[0-9]+\.apps\.education\.fr$/.test(currentURL.hostname)) {
                 if (currentURL.pathname === '/index.php/logout') {
                     // La page de déconnexion a été chargée, on peut fermer la fenêtre
