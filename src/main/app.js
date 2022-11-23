@@ -1,8 +1,10 @@
 const { app, BrowserWindow, dialog, ipcMain } = require('electron')
 const path = require('path')
+const fsPromise = require('fs/promises')
 
 const EduNuageUSB = {
-  account: false
+  account: false,
+  log: false
 }
 
 const sauvegarder = require('./lib/sauvegarder.js')(EduNuageUSB);
@@ -35,6 +37,17 @@ app.whenReady().then(() => {
     icon: path.join(__dirname, '../../resources/logo.png')
   })
   EduNuageUSB.mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'))
+
+  fsPromise.access('log.txt').then(() => {
+    // Le fichier log.txt existe, on active les logs
+    EduNuageUSB.log = true;
+    console.log('Logs activés')
+  }).catch(() => {
+    // Le fichier log.txt n'existe pas, on désactive les logs
+    // (inutile car déjà sur false par défaut)
+    EduNuageUSB.log = false;
+    console.log('Logs désactivés')
+  });
 
 });
 
