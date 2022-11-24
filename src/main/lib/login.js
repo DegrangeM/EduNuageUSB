@@ -81,6 +81,18 @@ function login(EduNuageUSB) {
                     );
                 } // endif not logout
             } // endif nuage url
+            else if (currentURL.href === 'https://nuage.apps.education.fr/') {
+                // Il est possible que l'utilisateur n'ait pas de compte LaBoite
+                // Il va lui être demandé d'en créer un mais cela ouvre une nouvelle fenêtre non traçable
+                // On remplace l'ouverture d'une nouvelle fenêtre par une rediraction
+                EduNuageUSB.loginWindow.webContents.executeJavaScript(`
+                    window.open2 = window.open;
+                    window.open = function(url) {
+                        location.replace(url);
+                    };
+                `);
+                // On aurait aussi pu utiliser https://www.electronjs.org/docs/latest/api/web-contents#contentssetwindowopenhandlerhandler
+            }
         }); // dom-ready
     }
 }
