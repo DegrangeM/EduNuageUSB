@@ -1,6 +1,7 @@
 const { app, BrowserWindow, dialog, ipcMain } = require('electron')
 const path = require('path')
 const fsPromise = require('fs/promises')
+const { netLog } = require('electron')
 
 const EduNuageUSB = {
   account: false,
@@ -47,6 +48,16 @@ app.whenReady().then(() => {
     // (inutile car déjà sur false par défaut)
     EduNuageUSB.log = false;
     console.log('Logs désactivés')
+  });
+
+  fsPromise.access('netlog.txt').then(() => {
+    // Le fichier netlog.txt existe, on active les netlogs
+    netLog.startLogging('netlog.txt').catch((e)=>{console.log(e);})
+    console.log('netlog activés')
+  }).catch(() => {
+    // Le fichier netlog.txt n'existe pas, on désactive les netlog
+    // (inutile car déjà sur false par défaut)
+    console.log('netlog désactivés')
   });
 
 });

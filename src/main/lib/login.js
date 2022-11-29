@@ -89,7 +89,7 @@ function login(EduNuageUSB) {
                     window.open2 = window.open;
                     window.open = function(url) {
                         location.replace(url);
-                    };
+                    };0
                 `);
                 // On aurait aussi pu utiliser https://www.electronjs.org/docs/latest/api/web-contents#contentssetwindowopenhandlerhandler
             }
