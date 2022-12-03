@@ -96,21 +96,21 @@ function login(EduNuageUSB) {
                 EduNuageUSB.loginWindow.webContents.executeJavaScript(`
                     window.open2 = window.open;
                     window.open = function(url) {
-                        if(url==="https://portail.apps.education.fr/signin") {
-                            url = "https://portail.apps.education.fr/"
-                            // On redirige vers cette page pour éviter de déclancher la condition suivante
-                            // Le site redirigera localement vers /signin mais sans déclancher la condition suivante
-                        }
                         location.replace(url);
                     };0
-                `);
+                `, true);
                 // On aurait aussi pu utiliser https://www.electronjs.org/docs/latest/api/web-contents#contentssetwindowopenhandlerhandler
             }
-            else if (currentURL.href === 'https://portail.apps.education.fr/signin') {
-                // De manière contre intuitive, il s'agit de l'url une fois connecté à la boite
-                // Le site redirigeant ensuite localement vers https://portail.apps.education.fr/
-                EduNuageUSB.loginWindow.webContents.executeJavaScript('location.href = https://nuage.apps.education.fr;', true);
-                // On redirige vers nuages.apps.education.fr qui redirigera lui vers le bon nextcloud (nuage02, nuage03, etc.)
+            else if (currentURL.href.startsWith('https://portail.apps.education.fr/signin')) {
+                // On regarde régulièrement si la personne est connecté au portail puis on la redirige
+                // vers nuages.apps.education.fr qui redirigera vers le bon nextcloud (nuage02, nuage03, etc.)
+                EduNuageUSB.loginWindow.webContents.executeJavaScript(`
+                setInterval(function() {
+                    if(localStorage.getItem('Meteor.loginToken')) {
+                        location.replace('https://nuage.apps.education.fr');
+                    }
+                }, 500);0
+                `, true);
             }
         }); // dom-ready
     }
