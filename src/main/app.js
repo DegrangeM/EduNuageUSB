@@ -20,6 +20,7 @@ app.whenReady().then(() => {
   loadRcloneConf();
 
   ipcMain.handle('getAccount', async () => EduNuageUSB.account);
+  ipcMain.handle('getFolder', async () => path.resolve(".."));
 
   ipcMain.handle('login', login);
   ipcMain.handle('logout', logout);

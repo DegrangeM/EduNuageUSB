@@ -1,6 +1,8 @@
 async function render() {    
 
     const account = await EduNuageUSB.getAccount()
+    const folder = await EduNuageUSB.getFolder()
+
 
     if(account) {
         document.getElementById('account-name').textContent = account.username;
@@ -11,6 +13,8 @@ async function render() {
         document.getElementById('link-login').addEventListener('click', EduNuageUSB.login);
     }
     
+    document.getElementById('folder').textContent = folder.replaceAll('\\', '/');
+
     const saveButton = document.getElementById('sauvegarder')
     const restaureButton = document.getElementById('restaurer')
 
