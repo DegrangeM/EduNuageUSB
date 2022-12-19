@@ -87,3 +87,16 @@ body.logged-out #menu {
     background-color: #55F;
     border-color: #558;
 }
+
+#folder {
+    /* font-style: italic;*/
+    font-size:75%;
+    position: relative;
+    top: 5px;
+    color: black;
+    opacity: 0.25;
+}
+
+#folder:hover {
+    opacity: 0.5;
+}
