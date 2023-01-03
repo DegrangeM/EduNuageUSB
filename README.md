@@ -32,7 +32,7 @@ Cliquez sur le bouton `Sauvegarder` pour sauvegarder le contenu de votre clef US
 
 <img src="https://user-images.githubusercontent.com/53106394/196750169-ed8eedeb-c85a-4edb-bed7-14042b054627.png" height="250px" align="right" />
 
-Veuillez noter que ce sera le dossier parent au dossier du logiciel qui sera sauvegardé (c'est à dire le dossier dans lequel se trouve le dossier du logiciel). Si vous avez mis le dossier à la racine de votre clef USB, ce sera toute votre clef USB qui sera sauvegardé, mais si vous avez mis le dossier du logiciel dans un dossier `Cours` par exemple, alors ce sera votre dossier `Cours` qui sera sauvegarder.
+Veuillez noter que ce sera le dossier parent au dossier du logiciel qui sera sauvegardé (c'est à dire le dossier dans lequel se trouve le dossier du logiciel). Si vous avez mis le dossier à la racine de votre clef USB, ce sera toute votre clef USB qui sera sauvegardé, mais si vous avez mis le dossier du logiciel dans un dossier `Cours` par exemple, alors ce sera votre dossier `Cours` qui sera sauvegarder ([plus d'informations](https://github.com/DegrangeM/EduNuageUSB/wiki/Comment-choisir-le-dossier-qui-sera-sauvegard%C3%A9-%3F)).
 
 Veuillez noter que vos documents seront stockés sur le cloud national de l'Éducation Nationale dans un dossier `EduNuageUSB`. Attention, après la sauvegarde le contenu du dossier `EduNuageUSB` présent sur le cloud de l'EN sera entièrement remplacé par le contenu de votre clef USB. Si par exemple vous sauvegardez une première fois votre clef USB, que vous effacez ensuite par erreur un fichier important de votre clef USB, et que vous sauvegardez à nouveau votre clef USB, alors le fichier effacé par erreur sera perdu.
 
