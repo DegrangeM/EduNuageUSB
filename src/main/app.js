@@ -14,6 +14,7 @@ const login = require('./lib/login.js')(EduNuageUSB);
 const logout = require('./lib/logout.js')(EduNuageUSB);
 const loadRcloneConf = require('./lib/loadRcloneConf.js')(EduNuageUSB);
 const openNC = require('./lib/openNC.js')(EduNuageUSB);
+const openHelp = require('./lib/openHelp.js')();
 
 app.whenReady().then(() => {
 
@@ -27,6 +28,7 @@ app.whenReady().then(() => {
   ipcMain.handle('sauvegarder', sauvegarder);
   ipcMain.handle('restaurer', restaurer);
   ipcMain.handle('openNC', openNC);
+  ipcMain.handle('openHelp', openHelp);
 
   EduNuageUSB.mainWindow = new BrowserWindow({
     width: 600,
@@ -63,10 +65,12 @@ app.whenReady().then(() => {
 
 });
 
+/*
 app.on("browser-window-created", (e, win) => {
   win.setAutoHideMenuBar(true);
   win.setMenuBarVisibility(false);
 });
+*/
 
 app.on('window-all-closed', function () {
   app.quit()

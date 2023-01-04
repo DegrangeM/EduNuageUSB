@@ -106,6 +106,6 @@ body.logged-out #menu {
     opacity: 0.5;
 }
 
-#help>a {
+#link-help {
     color: black;
 }
