@@ -88,15 +88,24 @@ body.logged-out #menu {
     border-color: #558;
 }
 
-#folder {
+#footer {
     /* font-style: italic;*/
     font-size:75%;
     position: relative;
     top: 5px;
     color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+#folder, #help {
     opacity: 0.25;
 }
 
-#folder:hover {
+#folder:hover, #help:hover {
     opacity: 0.5;
+}
+
+#link-help {
+    color: black;
 }

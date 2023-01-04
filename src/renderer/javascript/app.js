@@ -22,6 +22,7 @@ async function render() {
 
     restaureButton.addEventListener('click', EduNuageUSB.restaurer);
 
+    document.getElementById('link-help').addEventListener('click', EduNuageUSB.openHelp);
 
 }
 
