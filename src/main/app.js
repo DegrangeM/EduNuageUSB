@@ -63,6 +63,11 @@ app.whenReady().then(() => {
 
 });
 
+app.on("browser-window-created", (e, win) => {
+  win.setAutoHideMenuBar(true);
+  win.setMenuBarVisibility(false);
+});
+
 app.on('window-all-closed', function () {
   app.quit()
 });
